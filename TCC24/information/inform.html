@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Mental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="inform.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navegacao">
+            <a href="#" class="logo">M<span>in</span><span>D C</span><span>hec</span>K</a>
+            <ul class="nav-menu">
+             <li class="nav-op"><a href="#">Menu</a></li>
+             <li class="nav-op"><a href="#">Quiz</a></li>
+             <li class="nav-op"><a href="#">Contato</a></li>
+             <i class='bx bx-search-alt' ></i>
+            </ul>
+            <div class="menu">
+              <span class="quiz"></span>
+              <span class="quiz"></span>
+              <span class="quiz"></span>
+            </div>
+ 
+         </nav>
+
+    <!-- Vídeo de fundo -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video-saude-mental.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+    </div>
+
+    <!-- Tela inicial -->
+    <section id="inicio" class="section">
+        <div class="container">
+            <h1>Entenda a Saúde Mental</h1>
+            <p>
+                A saúde mental envolve o nosso estado emocional, psicológico e social. Ela influencia como pensamos, sentimos e agimos.
+            </p>
+            </p>
+          
+        </div>
+    </section>
+
+    <!-- Aba Saúde Mental -->
+    <section id="saudeMental" class="section">
+        <div class="container">
+            
+
+            <div class="card">
+                <h3>Depressão</h3>
+                <p>
+                    A depressão é um transtorno mental comum, mas sério, que pode afetar a forma como sentimos, pensamos e lidamos com as atividades diárias. 
+                    Sintomas incluem tristeza profunda, falta de interesse nas atividades, cansaço excessivo e pensamentos suicidas.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Ansiedade</h3>
+                <p>
+                    A ansiedade é uma resposta natural ao estresse, mas quando se torna excessiva, pode causar sintomas como preocupações constantes, 
+                    insônia e problemas de concentração. O tratamento pode incluir terapia, medicação e mudanças no estilo de vida.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Estresse</h3>
+                <p>
+                    O estresse é uma resposta do corpo a situações desafiadoras. Quando prolongado, pode causar sérios problemas de saúde mental e física. 
+                    Estratégias como meditação, exercício físico e apoio social são fundamentais no controle do estresse.
+                </p>
+            </div>
+
+            <a href="../Quiz/index.html"><button class="button">
+                <span>Iniciar Quiz</span>
+            </button></a>
+        </div>
+    </section>
+
+    <section id="quiz" class="section" style="display: none;">
+        <div class="container">
+            <h2>Quiz de Saúde Mental</h2>
+            <p>Responda ao quiz para obter um panorama sobre seu bem-estar mental.</p>
+        </div>
+    </section>
+
+    <script src="java.js"></script>
+</body>
+</html>
