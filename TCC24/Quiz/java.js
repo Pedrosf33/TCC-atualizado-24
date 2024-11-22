@@ -1,7 +1,7 @@
 let currentQuestion = 1; // Começa na primeira pergunta
 let respostas = []; // Armazena as respostas do usuário
 
-// Inicia o quiz
+// Função para iniciar o quiz
 function iniciarQuiz() {
     document.getElementById('inicio').style.display = 'none'; // Esconde a tela inicial
     document.getElementById('quiz').style.display = 'block';  // Exibe a tela do quiz
@@ -43,74 +43,76 @@ function avancarPergunta(proximaPergunta) {
 function finalizarQuiz() {
     document.getElementById('quiz').style.display = 'none'; // Esconde as perguntas
 
-    // Análise personalizada
-    let resultados = {
-        depressao: 0,
-        ansiedade: 0,
+    // Contadores para sintomas
+    let sintomas = {
         estresse: 0,
+        ansiedade: 0,
+        depressao: 0,
+        saude: 0
     };
 
+    // Análise baseada nas respostas
     respostas.forEach((resposta, index) => {
-        // Atribuir pesos às respostas com base nos sintomas
-        if (index === 0) { // Cenário 1
-            if (resposta === 'B') resultados.estresse++;
-            if (resposta === 'C') resultados.depressao++;
-            if (resposta === 'D') resultados.ansiedade++;
+        // Cenário 1: Estresse no Trabalho
+        if (index === 0) {
+            if (resposta === 'A') sintomas.saude++;  // Está bem
+            if (resposta === 'B') sintomas.estresse++;  // Pode estar estressado
+            if (resposta === 'C') sintomas.saude++;  // Está bem
+            if (resposta === 'D') sintomas.depressao++;  // Pode estar com depressão
         }
-        if (index === 1) { // Cenário 2
-            if (resposta === 'C') resultados.depressao++;
-            if (resposta === 'A') resultados.ansiedade++;
+        // Cenário 2: Relacionamentos Pessoais
+        if (index === 1) {
+            if (resposta === 'A') sintomas.ansiedade++;  // Ansiedade
+            if (resposta === 'B') sintomas.saude++;  // Está bem
+            if (resposta === 'C') sintomas.depressao++;  // Depressão
+            if (resposta === 'D') sintomas.ansiedade++;  // Ansiedade
         }
-        if (index === 2) { // Cenário 3
-            if (resposta === 'B' || resposta === 'C') resultados.estresse++;
-            if (resposta === 'D') resultados.ansiedade++;
+        // Cenário 3: Autocuidado
+        if (index === 2) {
+            if (resposta === 'A') sintomas.saude++;  // Está cuidando da saúde
+            if (resposta === 'B') sintomas.depressao++;  // Depressão e desânimo
+            if (resposta === 'C') sintomas.depressao++;  // Pode estar com depressão
+            if (resposta === 'D') sintomas.saude++;  // Está cuidando da saúde
         }
-        if (index === 3) { // Cenário 4
-            if (resposta === 'B') resultados.ansiedade++;
-            if (resposta === 'C') resultados.depressao++;
+        // Cenário 4: Mudança de Vida
+        if (index === 3) {
+            if (resposta === 'A') sintomas.saude++;  // Está bem
+            if (resposta === 'B') sintomas.ansiedade++;  // Ansiedade
+            if (resposta === 'C') sintomas.depressao++;  // Pode estar com depressão
+            if (resposta === 'D') sintomas.saude++;  // Está bem
         }
-        if (index === 4) { // Cenário 5
-            if (resposta === 'C') resultados.depressao++;
-            if (resposta === 'A') resultados.ansiedade++;
+        // Cenário 5: Sentimentos de Tristeza
+        if (index === 4) {
+            if (resposta === 'A') sintomas.saude++;  // Faz certo
+            if (resposta === 'B') sintomas.depressao++;  // Talvez depressão
+            if (resposta === 'C') sintomas.depressao++;  // Depressão
+            if (resposta === 'D') sintomas.saude++;  // Está cuidando da saúde
         }
     });
 
-    // Gera sugestões específicas
-    let sugestoes = [];
-    if (resultados.depressao > 2) {
-        sugestoes.push(
-            "Considere procurar apoio psicológico. A terapia é uma ferramenta poderosa para lidar com sentimentos persistentes de tristeza e desmotivação."
-        );
-    }
-    if (resultados.ansiedade > 2) {
-        sugestoes.push(
-            "Pratique técnicas de relaxamento, como meditação ou exercícios de respiração. Isso pode ajudar a reduzir a preocupação excessiva."
-        );
-    }
-    if (resultados.estresse > 2) {
-        sugestoes.push(
-            "Estabeleça limites no trabalho e encontre tempo para atividades relaxantes. O equilíbrio é fundamental para evitar o esgotamento."
-        );
+    // Geração do laudo
+    let laudo = "<strong>Seu laudo:</strong><br><br>";
+
+    // Diagnóstico baseado nos sintomas
+    if (sintomas.depressao >= 3) {
+        laudo += "Você apresenta sinais de depressão. Sentimentos persistentes de tristeza e desmotivação merecem atenção. Buscar ajuda profissional é altamente recomendado.<br>";
+    } else if (sintomas.depressao === 2) {
+        laudo += "Você apresenta alguns sintomas de depressão. É importante buscar maneiras de lidar com esses sentimentos e, se necessário, procurar ajuda.<br>";
+    } else if (sintomas.ansiedade >= 3) {
+        laudo += "Você está apresentando sinais de ansiedade. A preocupação excessiva pode estar afetando seu bem-estar. Tente práticas de relaxamento e, se necessário, procure apoio profissional.<br>";
+    } else if (sintomas.ansiedade === 2) {
+        laudo += "Você apresenta alguns sintomas leves de ansiedade. Técnicas de respiração e mindfulness podem ajudar a aliviar a ansiedade.<br>";
+    } else if (sintomas.estresse >= 3) {
+        laudo += "Você está passando por altos níveis de estresse. Procure maneiras de relaxar e estabelecer limites para não se sobrecarregar. Praticar atividades relaxantes pode ser útil.<br>";
+    } else if (sintomas.estresse === 2) {
+        laudo += "Você está com alguns sintomas de estresse. Tente organizar melhor sua rotina e incluir momentos de descanso para evitar sobrecarga.<br>";
+    } else if (sintomas.saude >= 3) {
+        laudo += "Você parece estar cuidando bem da sua saúde mental! Continue praticando atividades que ajudam a reduzir o estresse e a manter o equilíbrio.<br>";
+    } else {
+        laudo += "Você não apresenta sinais significativos de ansiedade, depressão ou estresse. Continue cuidando bem da sua saúde mental!<br>";
     }
 
-    // Caso não haja problemas graves
-    if (sugestoes.length === 0) {
-        sugestoes.push("Parabéns por estar cuidando bem da sua saúde mental! Continue assim e não hesite em buscar ajuda caso precise no futuro.");
-    }
-
-    // Monta o laudo final
-    let laudo = `<strong>Resumo dos seus resultados:</strong><br>`;
-    if (resultados.depressao > 2) laudo += "- Possíveis sinais de depressão detectados.<br>";
-    if (resultados.ansiedade > 2) laudo += "- Possíveis sinais de ansiedade detectados.<br>";
-    if (resultados.estresse > 2) laudo += "- Possíveis sinais de estresse detectados.<br>";
-
-    laudo += `<br><strong>Sugestões:</strong><ul>`;
-    sugestoes.forEach(sugestao => {
-        laudo += `<li>${sugestao}</li>`;
-    });
-    laudo += `</ul>`;
-
-    // Exibe o resultado
+    // Exibindo o laudo
     document.getElementById('resultadoTexto').innerHTML = laudo;
     document.getElementById('resultado').style.display = 'block';
 }
