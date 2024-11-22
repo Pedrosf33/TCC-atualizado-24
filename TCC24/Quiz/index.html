@@ -7,34 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Tela inicial -->
+    
     <div id="inicio">
         <h1>Quiz de Saúde Mental</h1>
         <p><strong>Atenção:</strong> Este quiz não substitui uma consulta médica. Se você estiver passando por dificuldades emocionais, procure a ajuda de um profissional de saúde.</p>
         <button onclick="iniciarQuiz()">Começar o Quiz</button>
     </div>
 
-    <!-- Tela do quiz com as perguntas -->
+    
     <div id="quiz" style="display:none;">
         <h2>Responda as perguntas abaixo</h2>
         <form id="quizForm">
-            <!-- Cenário 1 -->
+           
             <div id="pergunta1" class="pergunta">
-                <p>1. Cenário 1: Estresse no Trabalho<br>Você está enfrentando prazos apertados no trabalho e se sente sobrecarregado. Como você reage?</p>
+                <p>  Cenário 1: Estresse no Trabalho<br>Você está enfrentando prazos apertados no trabalho e se sente sobrecarregado. Como você reage?</p>
                 <input type="radio" id="p1_A" name="pergunta1" value="A">
                 <label for="p1_A">A) Encontro tempo para organizar minhas atividades.</label><br>
                 <input type="radio" id="p1_B" name="pergunta1" value="B">
                 <label for="p1_B">B) Trabalho mais horas para cumprir prazos.</label><br>
                 <input type="radio" id="p1_C" name="pergunta1" value="C">
-                <label for="p1_C">C) Ignore o estresse e continue.</label><br>
+                <label for="p1_C">C) Ignoro o estresse e continuo.</label><br>
                 <input type="radio" id="p1_D" name="pergunta1" value="D">
                 <label for="p1_D">D) Tento conversar com alguém sobre o que sinto.</label><br><br>
                 <button type="button" onclick="avancarPergunta(2)">Próxima</button>
             </div>
 
-            <!-- Cenário 2 -->
             <div id="pergunta2" class="pergunta" style="display:none;">
-                <p>2. Cenário 2: Relacionamentos pessoais – Um amigo próximo não respondeu às suas mensagens. Como você reage?</p>
+                <p>    Cenário 2: Relacionamentos pessoais – Um amigo próximo não respondeu às suas mensagens. Como você reage?</p>
                 <input type="radio" id="p2_A" name="pergunta2" value="A">
                 <label for="p2_A">A) Estou preocupado e tento entrar em contato com você diversas vezes.</label><br>
                 <input type="radio" id="p2_B" name="pergunta2" value="B">
@@ -48,7 +47,7 @@
 
             <!-- Cenário 3 -->
             <div id="pergunta3" class="pergunta" style="display:none;">
-                <p>3. Cenário 3: Autocuidado – Você percebe que não tem tempo para si mesmo. O que você decide fazer?</p>
+                <p>       3: Autocuidado – Você percebe que não tem tempo para si mesmo. O que você decide fazer?</p>
                 <input type="radio" id="p3_A" name="pergunta3" value="A">
                 <label for="p3_A">A) Defino um horário fixo para as atividades que gosto.</label><br>
                 <input type="radio" id="p3_B" name="pergunta3" value="B">
@@ -62,7 +61,7 @@
 
             <!-- Cenário 4 -->
             <div id="pergunta4" class="pergunta" style="display:none;">
-                <p>4. Cenário 4: Mudança de vida – Você tem uma grande mudança em sua vida (mudança de emprego, cidade, etc.). Como você está se sentindo?</p>
+                <p>  Cenário 4: Mudança de vida – Você tem uma grande mudança em sua vida (mudança de emprego, cidade, etc.). Como você está se sentindo?</p>
                 <input type="radio" id="p4_A" name="pergunta4" value="A">
                 <label for="p4_A">A) Entusiasmo por novas oportunidades.</label><br>
                 <input type="radio" id="p4_B" name="pergunta4" value="B">
@@ -76,7 +75,7 @@
 
             <!-- Cenário 5 -->
             <div id="pergunta5" class="pergunta" style="display:none;">
-                <p>5. Cenário 5: Sentimentos de tristeza – Você tem se sentido triste ou desmotivado ultimamente. O que você está fazendo?</p>
+                <p>   Cenário 5: Sentimentos de tristeza – Você tem se sentido triste ou desmotivado ultimamente. O que você está fazendo?</p>
                 <input type="radio" id="p5_A" name="pergunta5" value="A">
                 <label for="p5_A">A) Converso com alguém em quem confio sobre como me sinto.</label><br>
                 <input type="radio" id="p5_B" name="pergunta5" value="B">
@@ -90,7 +89,7 @@
         </form>
     </div>
 
-    <!-- Tela de resultado -->
+   
     <div id="resultado" style="display:none;">
         <h2>Resultado</h2>
         <p id="resultadoTexto"></p>
